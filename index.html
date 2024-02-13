@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio Artístico</title>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Playfair+Display:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Josefin Slab', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a; /* Color de fondo oscuro */
+        color: #ffffff; /* Color del texto blanco */
+    }
+
+    #container {
+        background-image: url('img/fondo.jpeg');
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+        background-attachment: fixed; /* Fondo fijo */
+    }
+
+    #content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    #imagen-apertura {
+        margin-top: 10px; /* Aumenta el espacio entre la imagen y el menú */
+        margin-bottom: 10px; /* Aumenta el espacio entre la imagen y la primera sección */
+        border-radius: 50%; /* Hace que la imagen sea circular */
+        overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del radio */
+    }
+
+    #menu {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Aumenta el espacio entre el menú y la primera sección */
+    
+    }
+
+    h1 {
+        font-family: 'Playfair Display', serif; /* Fuente elegante para el título */
+        font-size: 48px; /* Tamaño del título */
+        text-transform: uppercase; /* Convertir a mayúsculas */
+        margin-bottom: 20px; /* Espacio inferior */
+    }
+
+    button {
+        font-family: 'Josefin Slab', serif; /* Fuente bonita */
+        font-weight: bold;
+        font-size: 16px;
+        color: #ffffff; /* Color blanco */
+        background-color: transparent; /* Fondo transparente */
+        border: 2px solid #ffffff; /* Borde blanco */
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: 0 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    button:hover {
+        background-color: #ffffff; /* Fondo blanco al pasar el mouse */
+        color: #000000; /* Texto negro al pasar el mouse */
+    }
+
+    .section {
+        margin-top: 20px; /* Aumenta el espacio entre las secciones */
+        padding-bottom: 20px; /* Aumenta el espacio entre las secciones y el contenido siguiente */
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+        z-index: 9999;
+    }
+
+    .popup-content {
+        background-color: rgba(200, 100, 200, 0.8); /* Color de fondo oscuro para el popup */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        text-align: center;
+        font-family: Arial, sans-serif;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 80%; /* Cambia este valor según sea necesario */
+    }
+
+    .popup-content img {
+        max-width: 100%; /* Ajustamos el ancho máximo */
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .popup-text {
+        margin-top: 20px;
+        font-family: 'Courgette', cursive;
+        font-size: 20px;
+        color: #000000; /* Color del texto blanco */
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        color: #ffffff; /* Color del texto blanco */
+    }
+
+    @media screen and (max-width: 1080px) {
+        #container {
+            padding: 10px;
+        }
+
+        #content {
+            padding: 10px;
+        }
+
+        .popup {
+            width: 90%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .popup-content {
+            padding: 10px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .popup-text {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #ffffff; /* Color del texto blanco */
+        }
+
+        .close-btn {
+            font-size: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">×</span>
+        <img src="img/gerald.jpg" alt="ar.ge_rev" style="max-width: 40%; height: auto;">
+        <p class="popup-text">"¿Me precipito sin remedio a la oscuridad final?".</p>
+        <p class="popup-text">Que mi cadaver de pié, sea testamento, epitafio y herencia</p>
+        <p class="popup-text">De mis hojas, mi verdor, mi sombra y estas palabras.</p>
+    </div>
+</div>
+
+<div id="container">
+    <div id="content">
+        <h1>Gerardo Arcos</h1> <!-- Título agregado -->
+        <div id="menu">
+            <a href="#statement"><button>Statement</button></a>
+            <a href="#obras"><button>Obras</button></a>
+            <a href="#redes"><button>Redes</button></a>
+        </div>
+        <img id="imagen-apertura" src="img/intro.png" alt="Intro" style="max-width: 80%; height: auto;">
+        <div class="section" id="statement">
+            <h2>Mi Statement</h2>
+            <p>Soy Gerardo Arcos, un artista multidiciplinario apasionado por generar espacios que saquen a las personas de su cotidianidad y las inviten a reflexionar. A través de técnicas plásticas como la pintura y la escultura, así como del modelado 3D y la animación, busco explorar las fronteras entre lo físico y lo virtual.</p>
+            <p>Mi práctica artística se caracteriza por la experimentación constante.</p>
+            <p>En mi proceso creativo, me sumerjo en la experimentación, permitiendo que las ideas y conceptos se desarrollen de forma orgánica. Me impulsa la necesidad de generar un impacto emocional en el espectador, de provocar preguntas y abrir espacios para la reflexión. A través de mis obras, busco crear una conexión íntima con quienes las observan, invitándolos a explorar nuevas perspectivas y cuestionar su realidad.</p>
+            <p>En el futuro, aspiro a seguir expandiendo mi práctica artística, explorando nuevas tecnologías y medios que me permitan ampliar los límites de mi expresión creativa. Mi objetivo es contribuir al diálogo artístico y social, generando obras que provoquen cambios y promuevan la reflexión en nuestra sociedad.</p>
+        </div>
+        <div class="section" id="obras">
+                <h2>Obras</h2>
+                <div>
+                    <img src="img/dania.png" alt="Obra 1" style="max-width: 80%; height: auto;">
+                    <p>La chica de los Marlboro Rojo</p>
+                    <p>2021</p>
+                    <p>20×20 cm</p>
+                    <p>Acrílico sobre lienzo</p>
+                </div>
+                <div>
+                    <img src="img/xoxotlani.jpg" alt="Obra 2" style="max-width: 80%; height: auto;">
+                    <p>Xoxotlani</p>
+                    <p>2020</p>
+                    <p>25x35 cm</p>
+                    <p>Acrílico sobre lienzo</p>
+                </div>
+                <div>
+                    <img src="img/fabi.png" alt="Obra 3" style="max-width: 80%; height: auto;">
+                    <p>La Flaca</p>
+                    <p>2020</p>
+                    <p>25x35 cm</p>
+                    <p>Acrílico sobre lienzo</p>
+                </div>
+                <div>
+                    <img src="img/ame.png" alt="Obra 4" style="max-width: 80%; height: auto;">
+                    <p>Floreciendo</p>
+                    <p>2020</p>
+                    <p>20×20 cm</p>
+                    <p>Acrílico sobre lienzo</p>
+                </div>
+                <div>
+                    <img src="img/cecaelia.png" alt="Obra 5" style="max-width: 80%; height: auto;">
+                    <p>Cecaelia</p>
+                    <p>2022</p>
+                    <p>25x35 cm</p>
+                    <p>Acuarela sobre papel</p>
+                </div>
+                <div>
+                    <img src="img/futile.png" alt="Obra 6" style="max-width: 80%; height: auto;">
+                    <p>Resistance is Not Futile</p>
+                    <p>2022</p>
+                    <p>25x17 cm</p>
+                    <p>Gis pastel sobre papel</p>
+                </div>
+                <div>
+                    <img src="img/lia.jpg" alt="Obra 7" style="max-width: 80%; height: auto;">
+                    <p>Emilia</p>
+                    <p>2022</p>
+                    <p>25x17 cm</p>
+                    <p>Carboncillo sobre papel</p>
+                </div>
+                <div>
+                    <img src="img/maye.png" alt="Obra 8" style="max-width: 80%; height: auto;">
+                    <p>Maylen</p>
+                    <p>2022</p>
+                    <p>25x17 cm</p>
+                    <p>Carboncillo sobre papel</p>
+                </div>
+                <div>
+                    <img src="img/frida.jpg" alt="Obra 9" style="max-width: 80%; height: auto;">
+                    <p>Frida</p>
+                    <p>2022</p>
+                    <p>25x17 cm</p>
+                    <p>Carboncillo sobre papel</p>
+                </div>
+                <div>
+                    <img src="img/sinnombre.png" alt="Obra 10" style="max-width: 80%; height: auto;">
+                    <p>Sin Nombre</p>
+                    <p>2022</p>
+                    <p>25x17 cm</p>
+                    <p>Carboncillo sobre papel</p>
+                </div>
+                <div>
+                    <img src="img/edad.jpeg" alt="Obra 11" style="max-width: 80%; height: auto;">
+                    <p>Edad</p>
+                    <p>2024</p>
+                    <p>25x17 cm</p>
+                    <p>Acuarela sobre papel</p>
+                </div>
+                <div>
+                    <img src="img/bruja.jpeg" alt="Obra 12" style="max-width: 80%; height: auto;">
+                    <p>Bruja</p>
+                    <p>2024</p>
+                    <p>25x17 cm</p>
+                    <p>Acuarela sobre papel</p>
+                </div>
+        </div>
+        <div class="section" id="redes">
+            <h2>Redes</h2>
+            <a href="#" onclick="redirect('https://www.instagram.com/ar.ge_rev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')" title="Instagram"><img src="img/instagram.png" alt="Instagram" style="max-width: 7%; height: auto;"></a>
+            <a href="#" onclick="redirect('https://www.facebook.com/profile.php?id=100005261719210')" title="Facebook"><img src="img/facebook.png" alt="Facebook" style="max-width: 7%; height: auto;"></a>
+            <a href="#" onclick="redirect('https://www.instagram.com/gerald_huesudo_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')" title="Otra red social"><img src="img/instagram.png" alt="Otra red social" style="max-width: 7%; height: auto;"></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        document.getElementById('popup').style.display = 'block';
+    };
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    function redirect(url) {
+        window.open(url, '_blank');
+    }
+</script>
+</body>
+</html>
